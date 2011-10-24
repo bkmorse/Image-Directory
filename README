@@ -1,0 +1,19 @@
+Outputs all images onto page from a directory/folder on your server
+
+Use as follows:
+
+{exp:image_directory directory="/path/to/folder" img_ext="jpg" height="" width="" alt="" class="" wrap=""}
+
+directory (required) - absolute or relative path to folder of images you want to display
+
+img_ext (required) - gif|jpg|jpeg|png
+
+height, width, alt, class (optional)
+
+wrap (optional) - put within paragraph, div or span tags, see below
+
+wrap="p" would put it within <p></p>
+wrap="div" would put it within <div></div>
+wrap="span" would put it within <span></span>
+
+* if you get an error or nothing displays, be sure to check the path you passed to the directory parameter
