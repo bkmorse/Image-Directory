@@ -2,18 +2,28 @@ Outputs all images onto page from a directory/folder on your server
 
 Use as follows:
 
-{exp:image_directory directory="/path/to/folder" img_ext="jpg" height="" width="" alt="" class="" wrap=""}
+{exp:image_directory directory="path/to/folder/" img_ext="jpg" date_format=""}
+  {if image_count == 0}<ul>{/if}
+	  <li><img src="{image_url}">{filename}, size: {filesize}, modified on {modified_on}</img></li>
+  {if image_count == total_images}</ul>{/if}
+{/exp:image_directory}
 
-directory (required) - absolute or relative path to folder of images you want to display
+parameters:
 
-img_ext (required) - gif|jpg|jpeg|png
+directory (required) - path starts at web root of your website, so it begins at the same level that your system folder does,
+also do not start the path with a '/' at the beginning, only at the end '/', as seen above in the directory parameter
 
-height, width, alt, class (optional)
+img_ext (required) - extensions supports gif, jpg, jpeg, png
 
-wrap (optional) - put within paragraph, div or span tags, see below
+date_format (optional) = php date format, this is to format the {modified_on} variable
 
-wrap="p" would put it within <p></p>
-wrap="div" would put it within <div></div>
-wrap="span" would put it within <span></span>
+variables:
+
+image_url - relative path to where file resides
+filename - filename.ext, example: image.jpg
+filesize - size in bytes
+modified_on - modified date of file, default date: November 11, 2011 11:00 am
+image_count - current count of row
+total_images - total number of images
 
 * if you get an error or nothing displays, be sure to check the path you passed to the directory parameter
