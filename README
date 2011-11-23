@@ -2,6 +2,10 @@ Outputs all images onto page from a directory/folder on your server
 
 Use as follows:
 
+Place pi.image_directory.php file within system/expressionengine/third_party/image_directory folder
+
+If image_directory folder does not exist, create.
+
 {exp:image_directory directory="path/to/folder/" img_ext="jpg" date_format=""}
   {if image_count == 0}<ul>{/if}
 	  <li><img src="{image_url}">{filename}, size: {filesize}, modified on {modified_on}</img></li>
